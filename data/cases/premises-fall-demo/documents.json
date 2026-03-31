@@ -1,0 +1,152 @@
+[
+  {
+    "id": "fall-intake-1",
+    "citation": "INT-201",
+    "type": "intake",
+    "title": "Client Intake Statement",
+    "source": "Case Intake Team",
+    "date": "2026-02-05",
+    "injuries": [
+      "right knee pain",
+      "low back pain",
+      "swelling",
+      "difficulty walking"
+    ],
+    "text": "Client reports she slipped on clear liquid detergent in aisle 7 of a Highland Market store on February 4, 2026. She fell directly onto her right side and felt immediate right knee pain and low back pain. She states there were no warning cones in place before the fall. Client denies any prior right knee treatment and reports missing several warehouse shifts after the incident.",
+    "tags": [
+      "liability",
+      "injury onset",
+      "lost wages"
+    ]
+  },
+  {
+    "id": "incident-1",
+    "citation": "INC-1",
+    "type": "incident_report",
+    "title": "Store Incident Report",
+    "source": "Highland Market",
+    "date": "2026-02-04",
+    "text": "Internal incident report notes that a customer slipped near aisle 7 where a clear detergent spill was observed after the fall. The report states no floor warning cone had been placed before the incident and that cleanup was initiated only after plaintiff was assisted from the ground.",
+    "tags": [
+      "liability",
+      "premises notice"
+    ]
+  },
+  {
+    "id": "urgent-care-1",
+    "citation": "URG-1",
+    "type": "er_record",
+    "title": "Urgent Care Evaluation",
+    "source": "CareFirst Urgent Care",
+    "date": "2026-02-04",
+    "injuries": [
+      "right knee sprain",
+      "lumbar strain",
+      "antalgic gait"
+    ],
+    "text": "Patient presents same day after slip-and-fall with right knee pain, swelling, and low back pain. Exam notes antalgic gait and reduced weight-bearing tolerance. X-ray negative for fracture. Diagnosed with right knee sprain and lumbar strain. Provider issued brace, work excuse, anti-inflammatory medication, and orthopedic referral.",
+    "recommendations": [
+      "orthopedic follow-up"
+    ],
+    "tags": [
+      "medical",
+      "same-day treatment"
+    ]
+  },
+  {
+    "id": "ortho-201",
+    "citation": "ORT-201",
+    "type": "orthopedic_consult",
+    "title": "Orthopedic Knee Evaluation",
+    "source": "Metro Ortho Sports Medicine",
+    "date": "2026-02-14",
+    "injuries": [
+      "suspected medial meniscus tear",
+      "persistent lumbar strain"
+    ],
+    "text": "Plaintiff evaluated for persistent right knee instability, swelling, and lumbar pain after the store fall. Exam shows positive McMurray testing, joint line tenderness, and guarded squat mechanics. Physician suspects medial meniscus injury, orders right knee MRI, starts physical therapy, and removes plaintiff from work for two weeks.",
+    "recommendations": [
+      "right knee MRI",
+      "physical therapy"
+    ],
+    "tags": [
+      "medical",
+      "work restrictions"
+    ]
+  },
+  {
+    "id": "mri-201",
+    "citation": "MRI-201",
+    "type": "mri_report",
+    "title": "Right Knee MRI Findings",
+    "source": "North Imaging Center",
+    "date": "2026-02-20",
+    "injuries": [
+      "medial meniscus tear",
+      "joint effusion"
+    ],
+    "text": "MRI of the right knee demonstrates a probable posterior horn medial meniscus tear with small joint effusion. Impression recommends orthopedic surgical consultation if instability persists and continuation of physical therapy for mobility and pain control.",
+    "recommendations": [
+      "orthopedic surgical consultation",
+      "continue physical therapy"
+    ],
+    "tags": [
+      "medical imaging",
+      "objective findings"
+    ]
+  },
+  {
+    "id": "pt-201",
+    "citation": "PT-201",
+    "type": "physical_therapy_eval",
+    "title": "Physical Therapy Evaluation",
+    "source": "Restore Movement PT",
+    "date": "2026-02-27",
+    "injuries": [
+      "reduced knee flexion",
+      "impaired stairs",
+      "reduced lifting tolerance"
+    ],
+    "text": "Initial therapy evaluation shows reduced right knee flexion, painful stairs, guarded gait, and reduced lifting tolerance. Lower Extremity Functional Scale documents 41 percent disability. Therapist recommends ten visits over five weeks focused on gait restoration, strength, and swelling control.",
+    "recommendedVisits": 10,
+    "tags": [
+      "physical therapy",
+      "functional limits"
+    ]
+  },
+  {
+    "id": "wage-1",
+    "citation": "WAGE-1",
+    "type": "wage_verification",
+    "title": "Employer Wage Verification",
+    "source": "Northline Fulfillment",
+    "date": "2026-03-01",
+    "hoursMissed": 56,
+    "hourlyRate": 24.5,
+    "text": "Employer confirms plaintiff missed 56 work hours between February 5 and February 18, 2026 because of injury-related restrictions. Average hourly wage at the time was 24.50 dollars.",
+    "tags": [
+      "damages",
+      "lost wages"
+    ]
+  },
+  {
+    "id": "billing-201",
+    "citation": "BILL-201",
+    "type": "billing_ledger",
+    "title": "Current Medical Billing Ledger",
+    "source": "Plaintiff Case File",
+    "date": "2026-03-03",
+    "charges": {
+      "urgent_care": 980,
+      "orthopedic_consult": 875,
+      "mri_imaging": 1850,
+      "physical_therapy": 720,
+      "pharmacy": 95
+    },
+    "text": "Current medical billing ledger reflects urgent care charges of 980 dollars, orthopedic charges of 875 dollars, MRI charges of 1850 dollars, physical therapy charges of 720 dollars, and pharmacy charges of 95 dollars. No surgical consultation or procedure charges have been added yet.",
+    "tags": [
+      "damages",
+      "medical specials"
+    ]
+  }
+]

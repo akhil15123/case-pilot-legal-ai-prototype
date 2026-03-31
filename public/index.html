@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CasePilot | Plaintiff Case Intelligence Prototype</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-left" aria-hidden="true"></div>
+  <div class="ambient ambient-right" aria-hidden="true"></div>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark">CP</div>
+        <div>
+          <p class="kicker">Recent Independent Prototype • March 2026</p>
+          <p class="brand-name">CasePilot</p>
+        </div>
+      </div>
+
+      <div class="topbar-controls">
+        <label class="case-picker">
+          <span>Demo matter</span>
+          <select id="case-select"></select>
+        </label>
+        <button id="download-report" class="button button-secondary">Download Memo</button>
+        <button id="refresh-analysis" class="button button-primary">Refresh Analysis</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy panel">
+        <p class="kicker">Litigation Review Workspace</p>
+        <h1>Move from raw records to a plaintiff-ready case story.</h1>
+        <p class="hero-lead">A legal AI product demo built around the actual work of plaintiff firms: chronology, issue spotting, damages framing, and attorney-facing drafting.</p>
+        <p class="hero-description">CasePilot ingests record sets, maps treatment, scores coverage, surfaces missing support, estimates exposure, and turns the file into a strategic memo that feels reviewable instead of opaque.</p>
+
+        <div class="hero-actions">
+          <button id="insert-sample-question" class="button button-primary">Ask a Sample Question</button>
+          <a href="#strategy-grid" class="button button-secondary">Jump to Strategy</a>
+        </div>
+
+        <div class="prompt-bar">
+          <p class="section-label">Suggested prompts</p>
+          <div id="prompt-pills" class="prompt-pills"></div>
+        </div>
+
+        <div class="signal-ribbon" id="hero-signals"></div>
+      </div>
+
+      <aside class="hero-side">
+        <section class="score-panel panel">
+          <p class="section-label">Demand Readiness</p>
+          <div class="score-ring" id="score-ring">
+            <div class="score-core">
+              <span class="score-overline">Case score</span>
+              <strong id="score-number">--</strong>
+              <span id="score-caption">Analyzing file</span>
+            </div>
+          </div>
+          <div id="score-breakdown" class="score-breakdown"></div>
+        </section>
+
+        <section class="matter-panel panel">
+          <div class="matter-header">
+            <div>
+              <p class="section-label">Matter</p>
+              <h2 id="case-title">Loading…</h2>
+            </div>
+            <span class="matter-stage-pill" id="matter-stage">-</span>
+          </div>
+
+          <p id="matter-summary" class="matter-summary">-</p>
+
+          <dl class="matter-grid">
+            <div>
+              <dt>Type</dt>
+              <dd id="matter-type">-</dd>
+            </div>
+            <div>
+              <dt>Venue</dt>
+              <dd id="matter-venue">-</dd>
+            </div>
+            <div>
+              <dt>Medical Specials</dt>
+              <dd id="medical-specials">-</dd>
+            </div>
+            <div>
+              <dt>Projected Exposure</dt>
+              <dd id="projected-exposure">-</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+    </section>
+
+    <section class="workflow-strip">
+      <article class="workflow-step is-active">
+        <span>01</span>
+        <div>
+          <h3>Evidence Intake</h3>
+          <p>Multiple plaintiff matters with intake, liability, medical, wage, and billing records.</p>
+        </div>
+      </article>
+      <article class="workflow-step is-active">
+        <span>02</span>
+        <div>
+          <h3>Strategic Reading</h3>
+          <p>Coverage scoring and provider mapping convert scattered documents into case posture.</p>
+        </div>
+      </article>
+      <article class="workflow-step is-warning">
+        <span>03</span>
+        <div>
+          <h3>Risk & Gaps</h3>
+          <p>Missing support, treatment issues, and follow-up exposure are flagged automatically.</p>
+        </div>
+      </article>
+      <article class="workflow-step is-active">
+        <span>04</span>
+        <div>
+          <h3>Work Product</h3>
+          <p>Executive memo, demand narrative, deposition outline, and exportable report are ready to review.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="stats-grid" id="stats-grid"></section>
+    <section class="signal-grid" id="signal-grid"></section>
+
+    <section class="strategy-grid" id="strategy-grid">
+      <section class="panel panel-memo">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Executive Memo</p>
+            <h3>Case Strategy</h3>
+          </div>
+          <p class="panel-caption">The file distilled into a plaintiff-side posture memo rather than a pile of disconnected notes.</p>
+        </div>
+
+        <div class="memo-headline" id="memo-headline"></div>
+        <div class="memo-sections" id="memo-sections"></div>
+
+        <div class="theme-grid">
+          <article class="theme-card">
+            <p class="section-label">Plaintiff Themes</p>
+            <div id="memo-plaintiff-themes" class="theme-list"></div>
+          </article>
+          <article class="theme-card">
+            <p class="section-label">Defense Themes</p>
+            <div id="memo-defense-themes" class="theme-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel panel-coverage">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Coverage</p>
+            <h3>Evidence Coverage</h3>
+          </div>
+          <p class="panel-caption">A fast read of where the file is strong, developing, or still weak.</p>
+        </div>
+        <div id="coverage-rows" class="coverage-rows"></div>
+      </section>
+    </section>
+
+    <section class="analysis-grid">
+      <section class="panel panel-timeline">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Chronology</p>
+            <h3>Case Timeline</h3>
+          </div>
+          <p class="panel-caption">A litigation-first reading of the file, ordered by treatment and evidentiary weight.</p>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel panel-risks">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">Issue Spotting</p>
+              <h3>Case Risks</h3>
+            </div>
+          </div>
+          <div id="issues" class="stack"></div>
+        </section>
+
+        <section class="panel panel-missing">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">Record Requests</p>
+              <h3>Missing Evidence</h3>
+            </div>
+          </div>
+          <div id="missing-evidence" class="stack"></div>
+        </section>
+
+        <section class="panel panel-actions">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">Case Management</p>
+              <h3>Next Actions</h3>
+            </div>
+          </div>
+          <ul id="actions" class="action-list"></ul>
+        </section>
+
+        <section class="panel panel-chat">
+          <div class="panel-heading">
+            <div>
+              <p class="section-label">Document AI</p>
+              <h3>Ask the File</h3>
+            </div>
+          </div>
+          <form id="chat-form" class="chat-form">
+            <textarea id="chat-question" rows="4" placeholder="Ask about damages, future care, providers, liability, or what the file still needs."></textarea>
+            <button type="submit" class="button button-primary">Run Question</button>
+          </form>
+          <div id="chat-answer" class="chat-answer empty-state">No question asked yet.</div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="records-grid">
+      <section class="panel panel-damages">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Damages</p>
+            <h3>Damages Model</h3>
+          </div>
+          <p class="panel-caption">Current specials, projected future care, and wage-loss support in one view.</p>
+        </div>
+
+        <div class="damages-summary-grid">
+          <article class="mini-metric">
+            <p class="section-label">Current Specials</p>
+            <strong id="damages-current-total">-</strong>
+          </article>
+          <article class="mini-metric">
+            <p class="section-label">Future Care Model</p>
+            <strong id="damages-future-total">-</strong>
+          </article>
+          <article class="mini-metric">
+            <p class="section-label">Projected Exposure</p>
+            <strong id="damages-projected-total">-</strong>
+          </article>
+        </div>
+
+        <div id="damages-bars" class="bars"></div>
+        <div id="future-care-list" class="future-care-list"></div>
+        <div id="wage-loss-card" class="wage-loss-card"></div>
+      </section>
+
+      <section class="panel panel-providers">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Treatment Path</p>
+            <h3>Provider Journey</h3>
+          </div>
+          <p class="panel-caption">Who touched the file, when they touched it, and what they added.</p>
+        </div>
+        <div id="providers" class="providers"></div>
+      </section>
+    </section>
+
+    <section class="drafts-grid">
+      <section class="panel panel-draft">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Drafting</p>
+            <h3>Demand Narrative</h3>
+          </div>
+          <p class="panel-caption">Citation-aware summary tuned for plaintiff-side pre-suit presentation.</p>
+        </div>
+        <div id="draft" class="draft"></div>
+      </section>
+
+      <section class="panel panel-depo">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">Deposition Prep</p>
+            <h3>Liability Outline</h3>
+          </div>
+        </div>
+        <div id="depo-outline" class="outline-grid"></div>
+      </section>
+    </section>
+
+    <section class="panel panel-documents">
+      <div class="panel-heading">
+        <div>
+          <p class="section-label">Source File</p>
+          <h3>Document Library</h3>
+        </div>
+        <p class="panel-caption">Every output stays tethered to source material, and the library is searchable.</p>
+      </div>
+
+      <div class="document-toolbar">
+        <input id="document-filter" type="search" placeholder="Filter documents by title, source, or text">
+        <span id="document-count-label" class="document-count-label"></span>
+      </div>
+
+      <div id="documents" class="documents"></div>
+    </section>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

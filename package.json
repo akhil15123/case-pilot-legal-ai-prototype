@@ -1,0 +1,12 @@
+{
+  "name": "case-pilot-legal-ai-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Recent independent prototype for plaintiff-side legal document intelligence.",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "check": "node --check src/server.mjs && node --check src/lib/case-engine.mjs && node --check src/smoke-test.mjs",
+    "smoke": "node src/smoke-test.mjs"
+  }
+}

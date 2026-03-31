@@ -1,0 +1,160 @@
+[
+  {
+    "id": "intake-1",
+    "citation": "INT-1",
+    "type": "intake",
+    "title": "Client Intake Narrative",
+    "source": "Case Intake Team",
+    "date": "2026-01-13",
+    "injuries": [
+      "neck pain",
+      "low back pain",
+      "headaches",
+      "left shoulder pain"
+    ],
+    "text": "Client reports that on January 12, 2026 her Honda Civic was stopped in traffic on I-35 when a NorthPeak Logistics tractor-trailer rear-ended her vehicle. She states she felt immediate neck pain, low back pain, headaches, and left shoulder pain. Client denies any prior neck or back treatment. She missed work after the collision and expects to pursue a lost wage claim.",
+    "tags": [
+      "liability",
+      "injury onset",
+      "lost wages"
+    ]
+  },
+  {
+    "id": "police-1",
+    "citation": "POL-1",
+    "type": "police_report",
+    "title": "Texas Peace Officer Crash Report",
+    "source": "Dallas Police Department",
+    "date": "2026-01-12",
+    "text": "Officer narrative states that Unit 2, a NorthPeak Logistics tractor-trailer, failed to control speed and struck the rear of plaintiff's stopped vehicle. Moderate rear-end property damage was observed. Plaintiff complained of neck and back pain at the scene. No airbag deployment was noted.",
+    "tags": [
+      "liability",
+      "property damage"
+    ]
+  },
+  {
+    "id": "er-1",
+    "citation": "ER-1",
+    "type": "er_record",
+    "title": "Emergency Department Note",
+    "source": "Memorial Trauma Center",
+    "date": "2026-01-12",
+    "injuries": [
+      "acute cervical strain",
+      "lumbar strain",
+      "post-traumatic headache",
+      "left shoulder pain"
+    ],
+    "text": "Patient presents the evening of collision with cervical pain radiating into the left shoulder, lumbar pain, and headache. CT imaging negative for acute fracture. Diagnosed with acute cervical strain, lumbar strain, and post-traumatic headache. Patient reports she had occasional mild neck stiffness after long warehouse shifts last year but no prior treatment. Discharged with medication and referral for orthopedic follow-up and physical therapy.",
+    "recommendations": [
+      "orthopedic follow-up",
+      "physical therapy"
+    ],
+    "tags": [
+      "medical",
+      "same-day treatment"
+    ]
+  },
+  {
+    "id": "ortho-1",
+    "citation": "ORT-1",
+    "type": "orthopedic_consult",
+    "title": "Orthopedic Evaluation",
+    "source": "Metro Spine & Orthopedics",
+    "date": "2026-01-20",
+    "injuries": [
+      "cervical radiculopathy",
+      "lumbar sprain",
+      "left shoulder impingement"
+    ],
+    "text": "Plaintiff evaluated for persistent neck pain, low back pain, and left shoulder pain following truck collision. Exam shows reduced cervical range of motion, paraspinal tenderness, positive Spurling on the left, and painful shoulder abduction. Physician diagnoses cervical radiculopathy, lumbar sprain, and left shoulder impingement. Ordered cervical MRI and lumbar MRI, restricted lifting over 10 pounds, and recommended formal physical therapy.",
+    "recommendations": [
+      "cervical MRI",
+      "lumbar MRI",
+      "formal physical therapy"
+    ],
+    "tags": [
+      "medical",
+      "work restrictions"
+    ]
+  },
+  {
+    "id": "mri-1",
+    "citation": "MRI-1",
+    "type": "mri_report",
+    "title": "MRI Findings",
+    "source": "North Imaging Center",
+    "date": "2026-01-28",
+    "injuries": [
+      "C5-C6 disc protrusion",
+      "L4-L5 disc bulge"
+    ],
+    "text": "MRI of the cervical spine demonstrates a broad-based C5-C6 posterior disc protrusion mildly effacing the thecal sac. Lumbar MRI demonstrates a small L4-L5 disc bulge without fracture. Radiology impression recommends pain management consultation if radicular complaints continue and continuation of physical therapy.",
+    "recommendations": [
+      "pain management consultation",
+      "continue physical therapy"
+    ],
+    "tags": [
+      "medical imaging",
+      "objective findings"
+    ]
+  },
+  {
+    "id": "pt-1",
+    "citation": "PT-1",
+    "type": "physical_therapy_eval",
+    "title": "Physical Therapy Initial Evaluation",
+    "source": "ActiveMotion Rehab",
+    "date": "2026-02-02",
+    "injuries": [
+      "limited cervical rotation",
+      "guarded lumbar flexion",
+      "painful shoulder movement"
+    ],
+    "text": "Initial PT evaluation documents reduced cervical rotation, guarded lumbar flexion, headaches three times weekly, and difficulty lifting at work. Oswestry disability score 48 percent. Therapist plans 12 visits over 6 weeks focused on mobility, pain control, and return-to-work function.",
+    "recommendedVisits": 12,
+    "tags": [
+      "physical therapy",
+      "functional limits"
+    ]
+  },
+  {
+    "id": "pt-2",
+    "citation": "PT-2",
+    "type": "physical_therapy_progress",
+    "title": "Physical Therapy Progress Note",
+    "source": "ActiveMotion Rehab",
+    "date": "2026-03-10",
+    "injuries": [
+      "persistent cervical pain",
+      "ongoing lumbar pain"
+    ],
+    "text": "Patient returned after a three-week lapse in treatment, reporting transportation issues and childcare conflicts. Five of twelve visits completed to date. Neck pain remains 6 out of 10 with intermittent tingling into the left arm. Therapist notes continued guarded movement and recommends completion of remaining PT course.",
+    "completedVisits": 5,
+    "recommendedVisits": 12,
+    "tags": [
+      "treatment gap",
+      "ongoing symptoms"
+    ]
+  },
+  {
+    "id": "billing-1",
+    "citation": "BILL-1",
+    "type": "billing_ledger",
+    "title": "Medical Billing Ledger",
+    "source": "Plaintiff Case File",
+    "date": "2026-03-10",
+    "charges": {
+      "emergency_department": 3840,
+      "orthopedic_consult": 1250,
+      "mri_imaging": 2100,
+      "physical_therapy": 1620,
+      "pharmacy": 180
+    },
+    "text": "Outstanding medical charges reflected in current ledger: emergency department 3840 dollars, orthopedic consult 1250 dollars, MRI imaging 2100 dollars, physical therapy 1620 dollars, pharmacy 180 dollars. Ledger does not yet include any future pain management charges.",
+    "tags": [
+      "damages",
+      "medical specials"
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "id": "truck-wreck-demo",
+  "title": "Garcia v. NorthPeak Logistics",
+  "matterType": "Truck Wreck / Personal Injury",
+  "stage": "Pre-suit demand preparation",
+  "accidentDate": "2026-01-12",
+  "plaintiff": "Elena Garcia",
+  "defendant": "NorthPeak Logistics",
+  "venue": "Dallas County, Texas",
+  "claims": [
+    "negligence",
+    "bodily injury",
+    "past medical expenses",
+    "future medical treatment",
+    "lost wages"
+  ],
+  "prototypeDate": "2026-03",
+  "summary": "Rear-end truck collision with ongoing neck, lumbar, and shoulder complaints supported by ER, ortho, MRI, PT, and billing records."
+}

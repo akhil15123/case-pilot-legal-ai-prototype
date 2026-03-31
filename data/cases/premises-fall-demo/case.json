@@ -1,0 +1,19 @@
+{
+  "id": "premises-fall-demo",
+  "title": "Bennett v. Highland Retail Properties",
+  "matterType": "Premises Liability / Slip and Fall",
+  "stage": "Pre-suit damages evaluation",
+  "accidentDate": "2026-02-04",
+  "plaintiff": "Maria Bennett",
+  "defendant": "Highland Retail Properties",
+  "venue": "Tarrant County, Texas",
+  "claims": [
+    "premises negligence",
+    "bodily injury",
+    "past medical expenses",
+    "future medical treatment",
+    "lost wages"
+  ],
+  "prototypeDate": "2026-03",
+  "summary": "Slip-and-fall case involving a store spill, knee injury with MRI-confirmed meniscus tear, time off work, and documented wage loss."
+}
