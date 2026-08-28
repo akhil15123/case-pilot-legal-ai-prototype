@@ -1,5 +1,13 @@
 # CasePilot: Plaintiff Case Intelligence Prototype
 
+
+<!-- portfolio-showcase:start -->
+<p align="center">
+  <img src="docs/showcase.svg" alt="CasePilot Evidence Workspace synthetic product showcase" width="100%">
+</p>
+<p align="center"><sub><strong>Portfolio preview:</strong> all names, records, metrics, and scenarios shown above are synthetic. No real user or customer data is included.</sub></p>
+<!-- portfolio-showcase:end -->
+
 [![CI](https://github.com/akhil15123/case-pilot-legal-ai-prototype/actions/workflows/ci.yml/badge.svg)](https://github.com/akhil15123/case-pilot-legal-ai-prototype/actions/workflows/ci.yml)
 
 A full-stack prototype for explainable, plaintiff-side legal document intelligence workflows.
