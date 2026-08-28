@@ -1,6 +1,8 @@
 # CasePilot: Plaintiff Case Intelligence Prototype
 
-Recent independent project prototype built in March 2026 for plaintiff-side legal AI workflows.
+[![CI](https://github.com/akhil15123/case-pilot-legal-ai-prototype/actions/workflows/ci.yml/badge.svg)](https://github.com/akhil15123/case-pilot-legal-ai-prototype/actions/workflows/ci.yml)
+
+A full-stack prototype for explainable, plaintiff-side legal document intelligence workflows.
 
 ## Overview
 
@@ -18,9 +20,9 @@ This prototype is intentionally narrow and practical:
 - Downloadable case memo export
 - Conversational case Q&A over uploaded records
 
-## Why this project fits Anytime AI
+## Product goals
 
-Anytime AI focuses on plaintiff law firms, medical chronologies, secure legal AI, and agentic workflows. This prototype targets the same problems their users care about:
+The prototype targets recurring problems in plaintiff-side case preparation:
 
 - reducing time spent reviewing records
 - improving consistency in case preparation
@@ -63,7 +65,8 @@ The structure is deliberately lightweight so the project is easy to run and revi
 ## Run locally
 
 ```bash
-cd /Users/akhilb/Documents/Playground/anytime-ai-case-agent
+git clone https://github.com/akhil15123/case-pilot-legal-ai-prototype.git
+cd case-pilot-legal-ai-prototype
 npm run check
 npm run smoke
 npm run start
@@ -112,18 +115,8 @@ The system turns those files into:
 - a demand draft summary
 - suggested next actions for the legal team
 
-## Suggested portfolio framing
-
-Use this as a recent personal prototype:
-
-> Built a plaintiff-side legal AI prototype that converts truck-wreck medical records and litigation files into citation-grounded chronologies, issue spotting, and draft demand content. Implemented a full-stack workflow for case review, document reasoning, and attorney-facing outputs.
-
 ## Notes
 
 - This is a demo project with sample case data.
 - The included workflow is intentionally explainable and auditable.
 - The architecture is designed so an LLM provider, OCR pipeline, and vector store can be added without changing the frontend contract.
-
-## What to upload
-
-If an application asks for project code, upload the full `anytime-ai-case-agent` folder or a zip of it. If it asks for a project description, use the short summary in `docs/project-summary.md`.
