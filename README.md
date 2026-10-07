@@ -3,7 +3,7 @@
 
 <!-- portfolio-showcase:start -->
 <p align="center">
-  <img src="docs/showcase.svg" alt="CasePilot Evidence Workspace synthetic product showcase" width="100%">
+  <img src="docs/screenshots/overview.png" alt="CasePilot litigation review workspace" width="100%">
 </p>
 <p align="center"><sub><strong>Portfolio preview:</strong> all names, records, metrics, and scenarios shown above are synthetic. No real user or customer data is included.</sub></p>
 <!-- portfolio-showcase:end -->
@@ -40,6 +40,7 @@ The prototype targets recurring problems in plaintiff-side case preparation:
 ## Features
 
 - Matter switcher with two sample plaintiff-side cases
+- Sticky section navigation with scroll-spy and back-to-top across the full workspace
 - Executive strategy memo with plaintiff themes and defense themes
 - Evidence coverage matrix with strength scoring
 - Case overview with damages, document counts, and next actions
@@ -84,7 +85,18 @@ Then open [http://localhost:4173](http://localhost:4173).
 
 ## Preview
 
-![CasePilot home screen](./docs/assets/casepilot-home.png)
+<table>
+<tr>
+<td width="50%"><img src="docs/screenshots/strategy.png" alt="Strategy memo and evidence coverage"><br><sub><b>Strategy memo and evidence coverage</b>: plaintiff and defense themes, strength scoring</sub></td>
+<td width="50%"><img src="docs/screenshots/timeline-risks.png" alt="Case timeline and risks"><br><sub><b>Citation-grounded timeline and issue spotting</b>: treatment gaps, contradictions, missing support</sub></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/damages.png" alt="Damages model and provider journey"><br><sub><b>Damages model and provider journey</b>: specials, future care, who added what</sub></td>
+<td><img src="docs/screenshots/ask-the-file.png" alt="Ask the file"><br><sub><b>Ask the file</b>: answers with source citations</sub></td>
+</tr>
+</table>
+
+<p align="center"><img src="docs/screenshots/mobile.png" alt="Mobile layout" width="260"><br><sub>A sticky section nav with scroll-spy keeps the 10-section workspace navigable on desktop and phone.</sub></p>
 
 ## Repo structure
 

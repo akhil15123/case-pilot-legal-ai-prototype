@@ -576,8 +576,16 @@ function renderDocuments() {
 
 function renderChatAnswer(answer, citations) {
   el('chat-answer').classList.remove('empty-state');
+  const lines = String(answer).split('\n').filter(Boolean);
+  const [lead, ...rest] = lines;
+  // Multi-part answers arrive newline-separated: show the first line as the lead, the rest as items.
+  const body = rest.length && lead.endsWith(':')
+    ? `<p>${escapeHtml(lead)}</p><ul class="answer-list">${rest.map((line) => `<li>${escapeHtml(line)}</li>`).join('')}</ul>`
+    : lines.length > 1
+      ? `<ul class="answer-list">${lines.map((line) => `<li>${escapeHtml(line)}</li>`).join('')}</ul>`
+      : `<p>${escapeHtml(answer)}</p>`;
   el('chat-answer').innerHTML = `
-    <p>${escapeHtml(answer)}</p>
+    ${body}
     <p class="citation-row">${citations.length ? citations.map(escapeHtml).join(' • ') : 'No citations'}</p>
   `;
 }
@@ -700,3 +708,45 @@ async function initialize() {
 initialize().catch((error) => {
   renderChatAnswer(`Failed to load analysis: ${error.message}`, []);
 });
+
+// Sticky section nav: highlight the section in view and keep its pill visible.
+(function initSectionNav() {
+  const nav = document.getElementById("section-nav");
+  if (!nav || !("IntersectionObserver" in window)) return;
+  const links = new Map([...nav.querySelectorAll("a")].map((a) => [a.getAttribute("href").slice(1), a]));
+  const visible = new Set();
+  let lockedUntil = 0;
+  const activate = (id) => {
+    links.forEach((a, key) => a.classList.toggle("active", key === id));
+    const active = links.get(id);
+    if (active) nav.scrollTo({ left: active.offsetLeft - nav.clientWidth / 2 + active.clientWidth / 2, behavior: "smooth" });
+  };
+  const setActive = () => {
+    if (Date.now() < lockedUntil || !visible.size) return;
+    // Nearest section top to the nav wins; side-by-side panels share a top, so DOM order breaks the tie.
+    const ordered = [...links.keys()].filter((id) => visible.has(id));
+    let best = ordered[0], bestDistance = Infinity;
+    for (const id of ordered) {
+      const distance = Math.abs(document.getElementById(id).getBoundingClientRect().top - 90);
+      if (distance < bestDistance - 4) { best = id; bestDistance = distance; }
+    }
+    activate(best);
+  };
+  nav.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link) return;
+    activate(link.getAttribute("href").slice(1));
+    lockedUntil = Date.now() + 900;
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => (entry.isIntersecting ? visible.add(entry.target.id) : visible.delete(entry.target.id)));
+    setActive();
+  }, { rootMargin: "-90px 0px -45% 0px", threshold: [0, 0.15, 0.4, 0.7] });
+  window.addEventListener("scroll", () => window.requestAnimationFrame(setActive), { passive: true });
+  links.forEach((_, id) => { const el = document.getElementById(id); if (el) observer.observe(el); });
+
+  const top = document.getElementById("back-to-top");
+  const onScroll = () => top && top.classList.toggle("visible", window.scrollY > 900);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();

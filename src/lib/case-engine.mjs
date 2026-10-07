@@ -950,7 +950,10 @@ export function answerQuestion(question, analysis, rawDocuments) {
   if (normalized.includes('future') || normalized.includes('follow-up')) {
     return {
       answer: analysis.billing.futureItems.length
-        ? analysis.billing.futureItems.map((item) => `${item.label}: ${item.amountDisplay}`).join(' ')
+        ? [
+            `The file supports ${analysis.billing.futureItems.length} future-care item${analysis.billing.futureItems.length > 1 ? 's' : ''} totaling ${analysis.billing.futureTotalDisplay}:`,
+            ...analysis.billing.futureItems.map((item) => `${item.label}: ${item.amountDisplay}`)
+          ].join('\n')
         : 'The current file does not strongly support a separate future-care reserve yet.',
       citations: analysis.billing.futureItems.map((item) => item.citation)
     };
@@ -960,7 +963,7 @@ export function answerQuestion(question, analysis, rawDocuments) {
     return {
       answer: analysis.providerJourney
         .map((provider) => `${provider.name} (${provider.role}) handled ${provider.documentCount} record${provider.documentCount > 1 ? 's' : ''} across ${provider.dateRange}.`)
-        .join(' '),
+        .join('\n'),
       citations: unique(analysis.providerJourney.flatMap((provider) => provider.citations)).slice(0, 6)
     };
   }
@@ -969,7 +972,7 @@ export function answerQuestion(question, analysis, rawDocuments) {
     return {
       answer: analysis.issues
         .map((issue) => `${issue.title}: ${issue.explanation}`)
-        .join(' '),
+        .join('\n'),
       citations: unique(analysis.issues.flatMap((issue) => issue.citations))
     };
   }
